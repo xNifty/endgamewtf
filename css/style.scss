@@ -1,0 +1,107 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+//colors
+$color_alto_approx: #dddddd;
+$black: #000;
+$color_mountain_mist_approx: #989898;
+$red: red;
+
+//fonts
+$font_0: Ubuntu;
+$font_1: sans-serif;
+
+//@extend-elements
+//original selectors
+//.snoring #nav a:link, a:visited
+%extend_1 {
+  font-weight: bold;
+  color: $black;
+  text-decoration: none;
+  font-size: 1.5em;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 2px 2px 5px $color_mountain_mist_approx;
+}
+
+//original selectors
+//.floatxt a:link, .floatxt a:visited, .floatxt a:hover, .floatxt a:active
+%extend_2 {
+  color: $black !important;
+  font-weight: normal !important;
+  text-decoration: none !important;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none !important;
+  font-size: 1em !important;
+}
+
+
+body {
+  background: $color_alto_approx;
+}
+.snoring {
+  #title {
+    font-family: $font_0, $font_1;
+    font-size: 5em;
+    text-align: center;
+  }
+  #small {
+    font-family: $font_0, $font_1;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  #image {
+    text-align: center;
+  }
+  .floatxt {
+    text-align: right;
+  }
+  #nav {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    a {
+      display: inline-block;
+      padding: 10px;
+      &:link {
+        @extend %extend_1;
+      }
+      &:hover {
+        color: $red;
+        font-size: 1.5em;
+      }
+    }
+    li {
+      display: inline;
+      text-align: center;
+    }
+  }
+}
+a {
+  &:visited {
+    @extend %extend_1;
+  }
+  &:active {
+    color: $red;
+  }
+  &:hover {
+    color: $red;
+  }
+  .fa, .fab {
+    font-size: 1.5em;
+  }
+}
+.floatxt a {
+  &:link {
+    @extend %extend_2;
+  }
+  &:visited {
+    @extend %extend_2;
+  }
+  &:hover {
+    @extend %extend_2;
+  }
+  &:active {
+    @extend %extend_2;
+  }
+}
