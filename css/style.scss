@@ -87,6 +87,9 @@ a {
   &:hover {
     color: $red;
   }
+  & {
+    color: $black;
+  }
   .fa, .fab {
     font-size: 1.5em;
   }
