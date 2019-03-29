@@ -108,3 +108,8 @@ a {
     @extend %extend_2;
   }
 }
+p {
+  .smalltext {
+    font-size: 1em;
+  }
+}
